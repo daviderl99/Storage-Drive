@@ -23,7 +23,7 @@ export default function Login() {
     catch(e) {
       switch (e.code) {
         case 'auth/user-not-found':
-          setError('User not found');
+          setError('User does not exist');
           break;
         case 'auth/wrong-password':
           setError('Password is incorrect');
