@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFolderPlus } from '@fortawesome/free-solid-svg-icons';
-import { collection, doc, setDoc } from 'firebase/firestore';
+import { addDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
+import { useAuth } from '../../contexts/AuthContext';
 
-export default function AddFolderButton() {
+export default function AddFolderButton({ currentFolder }) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
+  const { currentUser } = useAuth();
+
   function openModal() {
     setOpen(true);
   }
@@ -20,16 +23,22 @@ export default function AddFolderButton() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    // try {
-    //   const collectionRef = collection(db, 'folders');
-    //   await setDoc(doc(collectionRef), { name });
+    if (currentFolder === null) return;
 
-    //   setName('');
-    //   closeModal();
-    // } catch (error) {
-    //   console.error("Error adding folder: ", error);
-    // }
-
+    addDoc(db.folders, {
+      name: name,
+      parentId: currentFolder.id,
+      userId: currentUser.uid,
+      // path,
+      createdAt: db.currentTimestamp
+    })
+    .then(() => {
+      console.log(`Created ${name}`);
+    })
+    .catch(error => {
+      console.log("Something went wrong", error);
+    })
+    
     setName('');
     closeModal();
   }
