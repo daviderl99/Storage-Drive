@@ -7,7 +7,7 @@ export default function UpdateProfile() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, updateEmail, updatePassword } = useAuth();
+  const { currentUser, customUpdateEmail, customUpdatePassword } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -15,28 +15,35 @@ export default function UpdateProfile() {
   function handleSubmit(e) {
     e.preventDefault();
     
-    // if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-    //   return setError('Passwords do not match');
-    // }
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError('Passwords do not match');
+    }
 
-    // const promises = [];
-    // setLoading(true);
-    // setError('');
+    const promises = [];
+    setLoading(true);
+    setError('');
 
-    // if (emailRef.current.value !== currentUser.email) {
-    //   promises.push(updateEmail(emailRef.current.value));
-    // }
-    // if (passwordRef.current.value) {
-    //   promises.push(updatePassword(passwordRef.current.value))
-    // }
+    if (emailRef.current.value !== currentUser.email) {
+      promises.push(customUpdateEmail(emailRef.current.value));
+    }
+    if (passwordRef.current.value) {
+      promises.push(customUpdatePassword(passwordRef.current.value))
+    }
 
-    // Promise.all(promises).then(() => {
-    //   navigate('/');
-    // }).catch(() => {
-    //   setError('Failed to update');
-    // }).finally(() => {
-    //   setLoading(false);
-    // });
+    Promise.all(promises).then(() => {
+      navigate('/');
+    }).catch((e) => {
+      switch (e.code) {
+        case 'auth/weak-password':
+          setError('Password should be at least 6 characters');
+          break;
+        default:
+          setError('Failed to update');
+          break;
+      }
+    }).finally(() => {
+      setLoading(false);
+    });
   }
 
   return (
