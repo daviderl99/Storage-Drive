@@ -1,11 +1,11 @@
-import React from 'react';
-import Navbar from './Navbar';
-import { Container } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import { useFolder } from '../../hooks/useFolder';
-import AddFolderButton from './AddFolderButton';
-import FolderBreadcrumbs from'./FolderBreadcrumbs';
-import Folder from './Folder';
+import React from "react";
+import Navbar from "./Navbar";
+import { Container } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { useFolder } from "../../hooks/useFolder";
+import AddFolderButton from "./AddFolderButton";
+import FolderBreadcrumbs from "./FolderBreadcrumbs";
+import Folder from "./Folder";
 
 export default function Dashboard() {
   const { folderId } = useParams();
