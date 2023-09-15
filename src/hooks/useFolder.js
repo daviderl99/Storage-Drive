@@ -1,7 +1,7 @@
 import { useEffect, useReducer } from "react";
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../contexts/AuthContext';
 import { getDoc, doc, query, where, orderBy, onSnapshot } from "@firebase/firestore";
-import { db } from '../../firebase';
+import { db } from '../firebase';
 
 const ACTIONS = {
   SELECT_FOLDER: 'select-folder',
@@ -9,7 +9,7 @@ const ACTIONS = {
   SET_CHILD_FOLDERS: 'set-child-folders'
 }
 
-const ROOT_FOLDER = {
+export const ROOT_FOLDER = {
   name: 'Root',
   id: null,
   path: []
