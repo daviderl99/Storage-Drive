@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Storage-Drive/static/css/main.da3089f3.css",
+    "main.js": "/Storage-Drive/static/js/main.e500f701.js",
+    "index.html": "/Storage-Drive/index.html",
+    "main.da3089f3.css.map": "/Storage-Drive/static/css/main.da3089f3.css.map",
+    "main.e500f701.js.map": "/Storage-Drive/static/js/main.e500f701.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da3089f3.css",
+    "static/js/main.e500f701.js"
+  ]
+}
