@@ -1,5 +1,5 @@
 import { AuthProvider } from "../contexts/AuthContext";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Signup from "./auth/Signup";
 import Login from "./auth/Login";
 import Profile from "./auth/Profile";
