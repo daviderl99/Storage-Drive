@@ -1,0 +1,25 @@
+body.dark-theme {
+  color: #fff;
+  background-color: #121212;
+
+  .navbar,
+  .navbar.nav,
+  .navbar-brand,
+  .nav-link {
+    color: #fff;
+    background-color: #222 !important;
+  }
+
+  .breadcrumb,
+  .breadcrumb-item,
+  .breadcrumb-item:before,
+  .item-link {
+    color: #fff;
+    background-color: #121212 !important;
+  }
+
+  .card {
+    color: #fff;
+    background-color: #222 !important;
+  }
+}
