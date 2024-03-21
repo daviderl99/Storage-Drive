@@ -1,0 +1,22 @@
+.file-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+
+.file-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.file-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: 100%;
+}

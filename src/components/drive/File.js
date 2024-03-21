@@ -1,6 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile } from "@fortawesome/free-solid-svg-icons";
+import "../../styles/File.scss";
+
+function isImage(file) {
+  const imageExtensions = ["jpg", "jpeg", "png", "gif", "bmp", "svg"];
+  const fileExtension = file.name.split(".").pop().toLowerCase();
+  return imageExtensions.includes(fileExtension);
+}
 
 export default function File({ file }) {
   return (
@@ -8,10 +15,16 @@ export default function File({ file }) {
       href={file.url}
       target="_blank"
       rel="noreferrer"
-      className="item-link btn btn-outline-dark text-truncate w-100"
+      className="file-link btn btn-outline-secondary p-0 w-100"
     >
-      <FontAwesomeIcon icon={faFile} className="me-2" />
-      {file.name}
+      <div className="file-info">
+        <p className="file-title mt-2" title={file.name}>{file.name}</p>
+        {isImage(file) ? (
+          <img src={file.url} alt={file.name} className="file-image" />
+        ) : (
+          <FontAwesomeIcon icon={faFile} className="file-image w-50" />
+        )}
+      </div>
     </a>
   );
 }
