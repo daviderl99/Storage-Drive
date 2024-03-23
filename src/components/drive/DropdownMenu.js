@@ -10,7 +10,10 @@ function DropdownMenu({ fileId }) {
       <Dropdown.Toggle as={Click} />
       <Dropdown.Menu>
         <Dropdown.Item as="div">Rename</Dropdown.Item>
-        <Dropdown.Item as="div" onClick={() => deleteFile(fileId)}>
+        <Dropdown.Item as="div" onClick={(e) => {
+          e.preventDefault();
+          deleteFile(fileId);
+        }}>
           Delete
         </Dropdown.Item>
       </Dropdown.Menu>
