@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile } from "@fortawesome/free-solid-svg-icons";
+import DropdownMenu from "./DropdownMenu";
 import "../../styles/File.scss";
 
 function isImage(file) {
@@ -18,7 +19,12 @@ export default function File({ file }) {
       className="file-link btn btn-outline-secondary p-0 w-100"
     >
       <div className="file-info">
-        <p className="file-title mt-2" title={file.name}>{file.name}</p>
+        <div className="file-title-wrapper">
+          <p className="file-title mt-2" title={file.name}>
+            {file.name}
+          </p>
+          <DropdownMenu fileId={file.id} />
+        </div>
         {isImage(file) ? (
           <img src={file.url} alt={file.name} className="file-image" />
         ) : (
