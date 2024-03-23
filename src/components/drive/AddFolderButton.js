@@ -66,7 +66,7 @@ export default function AddFolderButton({ currentFolder }) {
               <Form.Label>Folder Name</Form.Label>
               <Form.Control
                 type="text"
-                requried
+                required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
