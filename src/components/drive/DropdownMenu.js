@@ -1,27 +1,104 @@
-import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
+import React, { useState, useRef, useEffect } from "react";
+import { Dropdown, Modal, Form, Button } from "react-bootstrap";
 import { db } from "../../firebase";
-import { doc, deleteDoc } from "firebase/firestore";
+import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import "../../styles/DropdownMenu.scss";
 
-function DropdownMenu({ fileId }) {
+function DropdownMenu({ file }) {
+  const { id: fileId, name: fileName } = file;
+  const [open, setOpen] = useState(false);
+  const [newName, setNewName] = useState(fileName);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (open) {
+      const input = inputRef.current;
+      if (input) {
+        input.focus();
+        // Select the text without the extension
+        const extensionIndex = fileName.lastIndexOf(".");
+        if (extensionIndex > 0) {
+          input.setSelectionRange(0, extensionIndex);
+        }
+      }
+    }
+  }, [open, fileName]);
+
+  const openModal = () => setOpen(true);
+  const closeModal = () => setOpen(false);
+
+  const renameFile = async () => {
+    try {
+      closeModal();
+      await updateDoc(doc(db.files, fileId), { name: newName });
+    } catch (error) {
+      console.error("Error renaming file: ", error);
+    }
+  };
+
+  const deleteFile = async () => {
+    try {
+      await deleteDoc(doc(db.files, fileId));
+    } catch (error) {
+      console.error("Error deleting file: ", error);
+    }
+  };
+
   return (
-    <Dropdown>
-      <Dropdown.Toggle as={Click} />
-      <Dropdown.Menu>
-        <Dropdown.Item as="div">Rename</Dropdown.Item>
-        <Dropdown.Item as="div" onClick={(e) => {
-          e.preventDefault();
-          deleteFile(fileId);
-        }}>
-          Delete
-        </Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+    <>
+      <Dropdown>
+        <Dropdown.Toggle as={Click} />
+        <Dropdown.Menu>
+          <Dropdown.Item
+            as="div"
+            onClick={(e) => {
+              e.preventDefault();
+              openModal();
+            }}
+          >
+            Rename
+          </Dropdown.Item>
+          <Dropdown.Item
+            as="div"
+            onClick={(e) => {
+              e.preventDefault();
+              deleteFile();
+            }}
+          >
+            Delete
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+
+      <Modal show={open} onHide={closeModal}>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>Rename File</Form.Label>
+              <Form.Control
+                type="text"
+                required
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+                ref={inputRef}
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={closeModal}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={renameFile}>
+            Rename
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
   );
 }
 
-const Click = React.forwardRef(({ children, onClick }, ref) => (
+const Click = React.forwardRef(({ onClick }, ref) => (
   <span
     className="three-dots-toggle"
     ref={ref}
@@ -33,13 +110,5 @@ const Click = React.forwardRef(({ children, onClick }, ref) => (
     &#8942; {/* Unicode for vertical ellipsis */}
   </span>
 ));
-
-const deleteFile = async (fileId) => {
-  try {
-    await deleteDoc(doc(db.files, fileId));
-  } catch (error) {
-    console.error("Error deleting file: ", error);
-  }
-};
 
 export default DropdownMenu;

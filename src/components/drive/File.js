@@ -23,7 +23,7 @@ export default function File({ file }) {
           <p className="file-title mt-2" title={file.name}>
             {file.name}
           </p>
-          <DropdownMenu fileId={file.id} />
+          <DropdownMenu file={file} />
         </div>
         {isImage(file) ? (
           <img src={file.url} alt={file.name} className="file-image" />
