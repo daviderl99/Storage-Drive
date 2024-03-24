@@ -72,7 +72,12 @@ function DropdownMenu({ file }) {
 
       <Modal show={open} onHide={closeModal}>
         <Modal.Body>
-          <Form>
+          <Form
+            onSubmit={(event) => {
+              event.preventDefault();
+              renameFile();
+            }}
+          >
             <Form.Group className="mb-3">
               <Form.Label>Rename File</Form.Label>
               <Form.Control
@@ -89,7 +94,7 @@ function DropdownMenu({ file }) {
           <Button variant="secondary" onClick={closeModal}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={renameFile}>
+          <Button variant="primary" type="submit" onClick={renameFile}>
             Rename
           </Button>
         </Modal.Footer>
