@@ -31,4 +31,8 @@ body.dark-theme {
     color: $darkModeTextWhite !important;
     background-color: $darkModeGrayBg !important;
   }
+
+  .modal-body {
+    color: $darkModeBlackBg !important;
+  }
 }
