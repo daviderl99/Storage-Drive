@@ -7,12 +7,14 @@ import PrivateRoute from "./auth/PrivateRoute";
 import ForgotPassword from "./auth/ForgotPassword";
 import UpdateProfile from "./auth/UpdateProfile";
 import Dashboard from "./drive/Dashboard";
+import NotFound from "./NotFound";
 
 function App() {
   return (
     <Router>
       <AuthProvider>
         <Routes>
+          <Route path="*" element={<NotFound />} />
           {/* Drive */}
           <Route exact path="/" element={<PrivateRoute />}>
             <Route path="/" element={<Dashboard />} />
@@ -27,7 +29,6 @@ function App() {
           <Route path="/update-profile" element={<PrivateRoute />}>
             <Route path="/update-profile" element={<UpdateProfile />} />
           </Route>
-
           {/* Auth */}
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
