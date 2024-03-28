@@ -56,6 +56,7 @@ export default function AddFolderButton({ currentFolder }) {
         variant="outline-success"
         size="sm"
         className="p-2 mt-3"
+        title="Create Folder"
       >
         <FontAwesomeIcon icon={faFolderPlus} size="xl" />
       </Button>
