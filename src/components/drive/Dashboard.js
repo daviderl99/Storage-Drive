@@ -8,6 +8,7 @@ import AddFileButton from "./AddFileButton";
 import FolderBreadcrumbs from "./FolderBreadcrumbs";
 import Folder from "./Folder";
 import File from "./File";
+import "../../styles/main.scss";
 
 export default function Dashboard() {
   const { folderId } = useParams();

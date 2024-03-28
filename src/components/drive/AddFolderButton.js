@@ -56,6 +56,7 @@ export default function AddFolderButton({ currentFolder }) {
         variant="outline-success"
         size="sm"
         className="p-2 mt-3"
+        title="Create Folder"
       >
         <FontAwesomeIcon icon={faFolderPlus} size="xl" />
       </Button>
@@ -66,7 +67,7 @@ export default function AddFolderButton({ currentFolder }) {
               <Form.Label>Folder Name</Form.Label>
               <Form.Control
                 type="text"
-                requried
+                required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>

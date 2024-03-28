@@ -1,0 +1,38 @@
+$darkModeBlackBg: #121212;
+$darkModeTextWhite: #fff;
+$darkModeGrayBg: #222;
+$darkModeLightGrayBg: #6c757d;
+
+body.dark-theme {
+  color: $darkModeTextWhite !important;
+  background-color: $darkModeBlackBg !important;
+
+  .navbar,
+  .navbar.nav,
+  .navbar-brand,
+  .nav-link {
+    color: $darkModeTextWhite !important;
+    background-color: $darkModeGrayBg !important;
+  }
+
+  .breadcrumb,
+  .breadcrumb-item,
+  .breadcrumb-item:before,
+  .file-link {
+    color: $darkModeTextWhite !important;
+    background-color: $darkModeBlackBg !important;
+  }
+
+  .file-link:hover {
+    background-color: $darkModeLightGrayBg !important;
+  }
+
+  .card {
+    color: $darkModeTextWhite !important;
+    background-color: $darkModeGrayBg !important;
+  }
+
+  .modal-body {
+    color: $darkModeBlackBg !important;
+  }
+}

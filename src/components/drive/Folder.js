@@ -11,7 +11,7 @@ export default function Folder({ folder }) {
       to={`/folder/${folder.id}`}
       state={{ folder: folder }}
       variant="outline-dark"
-      className="text-truncate w-100"
+      className="file-link text-truncate w-100"
     >
       <FontAwesomeIcon icon={faFolder} className="me-2" />
       {folder.name}

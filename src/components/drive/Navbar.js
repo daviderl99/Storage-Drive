@@ -3,6 +3,7 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import ThemeColorButton from "./ThemeColorButton";
 
 export default function NavbarComponent() {
   return (
@@ -16,6 +17,7 @@ export default function NavbarComponent() {
             <FontAwesomeIcon icon={faUser} size="lg" />
           </Nav.Link>
         </Nav>
+        <ThemeColorButton />
       </Container>
     </Navbar>
   );
