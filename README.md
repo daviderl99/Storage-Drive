@@ -1,4 +1,4 @@
-# 📁 FDrive
+# FDrive
 
 A simple Google Drive-inspired file storage app built using **Firebase**.  
 Users can upload, view, and manage files in their own secure storage space.
@@ -9,15 +9,15 @@ Users can upload, view, and manage files in their own secure storage space.
 
 ## Features
 
-- 🔐 User authentication with Firebase Auth
-- ☁️ File upload and storage via Firebase Storage
-- 🗂️ Basic folder structure and navigation
-- 📄 File preview, renaming, and deleting
-- 🧭 Responsive design using Bootstrap
+-  User authentication with Firebase Auth
+-  File upload and storage via Firebase Storage
+-  Basic folder structure and navigation
+- File preview, renaming, and deleting
+- Responsive design using Bootstrap
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 **Frontend:**
 - React
@@ -31,7 +31,7 @@ Users can upload, view, and manage files in their own secure storage space.
 
 ---
 
-## 🏁 Getting Started (Development)
+## Getting Started (Development)
 
 1. **Clone the repository:**
 
@@ -61,7 +61,7 @@ Users can upload, view, and manage files in their own secure storage space.
 
 ---
 
-## 🌐 Deployment
+## Deployment
 
 This project is configured to deploy to GitHub Pages.
 
@@ -83,7 +83,7 @@ This will build the app and push the contents of the `/build` folder to the `gh-
 
 ---
 
-## 📄 License
+## License
 
 MIT
 
