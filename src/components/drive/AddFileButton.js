@@ -78,12 +78,14 @@ export default function AddFileButton({ currentFolder }) {
 
   return (
     <>
-      <label className="btn btn-outline-success btn-sm p-2 mt-3 me-2" title="Upload File">
-        <FontAwesomeIcon icon={faFileUpload} size="xl" />
+      <label className="btn-drive" title="Upload file">
+        <FontAwesomeIcon icon={faFileUpload} aria-hidden="true" />
+        <span>Upload file</span>
         <input
           type="file"
           onChange={handleUpload}
-          style={{ opacity: 0, position: "absolute", left: "-9999px" }}
+          className="file-input-hidden"
+          aria-label="Choose a file to upload"
         />
       </label>
       {uploadingFiles.length > 0 &&

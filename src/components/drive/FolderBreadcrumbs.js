@@ -8,10 +8,7 @@ export default function FolderBreadcrumbs({ currentFolder }) {
   if (currentFolder) path = [...path, ...currentFolder.path];
 
   return (
-    <Breadcrumb
-      className="flex-grow-1"
-      listProps={{ className: "bg-white m-0" }}
-    >
+    <Breadcrumb className="flex-grow-1 mb-0" listProps={{ className: "mb-0 p-0" }}>
       {path.map((folder, index) => (
         <Breadcrumb.Item
           key={folder.id}

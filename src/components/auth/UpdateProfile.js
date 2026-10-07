@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import CenteredContainer from "../CenteredContainer";
 import Navbar from "../drive/Navbar";
+import "../../styles/main.scss";
 
 export default function UpdateProfile() {
   const emailRef = useRef();
@@ -55,7 +56,7 @@ export default function UpdateProfile() {
     <>
       <Navbar />
       <CenteredContainer>
-        <Card>
+        <Card className="auth-card">
           <Card.Body>
             <h2 className="text-center mb-4">Update Profile</h2>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -83,7 +84,7 @@ export default function UpdateProfile() {
             </Form>
           </Card.Body>
         </Card>
-        <div className="w-100 text-center mt-2">
+        <div className="w-100 text-center mt-2 auth-footer-text">
           <Link to="/user">Cancel</Link>
         </div>
       </CenteredContainer>

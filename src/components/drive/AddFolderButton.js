@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import { Modal, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolderPlus } from "@fortawesome/free-solid-svg-icons";
 import { addDoc } from "firebase/firestore";
@@ -51,15 +51,15 @@ export default function AddFolderButton({ currentFolder }) {
 
   return (
     <>
-      <Button
+      <button
+        type="button"
         onClick={openModal}
-        variant="outline-success"
-        size="sm"
-        className="p-2 mt-3"
-        title="Create Folder"
+        className="btn-drive"
+        title="Create folder"
       >
-        <FontAwesomeIcon icon={faFolderPlus} size="xl" />
-      </Button>
+        <FontAwesomeIcon icon={faFolderPlus} />
+        <span>New folder</span>
+      </button>
       <Modal show={open} onHide={closeModal}>
         <Form onSubmit={handleSubmit}>
           <Modal.Body>
@@ -74,12 +74,12 @@ export default function AddFolderButton({ currentFolder }) {
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={closeModal}>
+            <button type="button" className="btn-drive" onClick={closeModal}>
               Close
-            </Button>
-            <Button variant="success" type="submit">
-              Create Folder
-            </Button>
+            </button>
+            <button type="submit" className="btn-drive btn-drive-primary">
+              Create folder
+            </button>
           </Modal.Footer>
         </Form>
       </Modal>

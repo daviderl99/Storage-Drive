@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import CenteredContainer from "../CenteredContainer";
 import Navbar from "../drive/Navbar";
+import "../../styles/main.scss";
 
 export default function Profile() {
   const [error, setError] = useState("");
@@ -25,18 +26,22 @@ export default function Profile() {
     <>
       <Navbar />
       <CenteredContainer>
-        <Card>
+        <Card className="auth-card">
           <Card.Body>
             <h2 className="text-center mb-4">Profile</h2>
             {error && <Alert variant="danger">{error}</Alert>}
-            {currentUser.email}
-            <Link to="/update-profile" className="btn btn-primary w-100 mt-3">
+            <p className="my-4">Email: {currentUser.email}</p>
+            <Link to="/update-profile" className="btn btn-primary w-100">
               Update Profile
             </Link>
           </Card.Body>
         </Card>
-        <div className="w-100 text-center mt-2">
-          <Button variant="link" onClick={handleLogout}>
+        <div className="w-100 text-center mt-2 auth-footer-text">
+          <Button
+            variant="link"
+            onClick={handleLogout}
+            style={{ color: "inherit" }}
+          >
             Log Out
           </Button>
         </div>

@@ -1,20 +1,17 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolder } from "@fortawesome/free-solid-svg-icons";
 
 export default function Folder({ folder }) {
   return (
-    <Button
-      as={Link}
+    <Link
       to={`/folder/${folder.id}`}
       state={{ folder: folder }}
-      variant="outline-dark"
-      className="file-link text-truncate w-100"
+      className="folder-card"
     >
-      <FontAwesomeIcon icon={faFolder} className="me-2" />
-      {folder.name}
-    </Button>
+      <FontAwesomeIcon icon={faFolder} className="folder-icon" />
+      <span className="folder-name" title={folder.name}>{folder.name}</span>
+    </Link>
   );
 }

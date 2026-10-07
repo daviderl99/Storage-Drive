@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Dropdown, Modal, Form, Button } from "react-bootstrap";
+import { Dropdown, Modal, Form } from "react-bootstrap";
 import { db } from "../../firebase";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import "../../styles/DropdownMenu.scss";
@@ -91,12 +91,16 @@ function DropdownMenu({ file }) {
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={closeModal}>
+          <button type="button" className="btn-drive" onClick={closeModal}>
             Cancel
-          </Button>
-          <Button variant="primary" type="submit" onClick={renameFile}>
+          </button>
+          <button
+            type="submit"
+            className="btn-drive btn-drive-primary"
+            onClick={renameFile}
+          >
             Rename
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </>

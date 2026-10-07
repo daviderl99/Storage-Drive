@@ -4,6 +4,7 @@ import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import CenteredContainer from "../CenteredContainer";
 import Navbar from "../drive/Navbar";
+import "../../styles/main.scss";
 
 export default function Login() {
   const emailRef = useRef();
@@ -41,7 +42,7 @@ export default function Login() {
     <>
       <Navbar />
       <CenteredContainer>
-        <Card>
+        <Card className="auth-card">
           <Card.Body>
             <h2 className="text-center mb-4">Log In</h2>
             {error && <Alert variant="danger">{error}</Alert>}
@@ -63,7 +64,7 @@ export default function Login() {
             </div>
           </Card.Body>
         </Card>
-        <div className="w-100 text-center mt-2">
+        <div className="w-100 text-center mt-2 auth-footer-text">
           Not registered? <Link to="/signup">Sign up</Link>
         </div>
       </CenteredContainer>

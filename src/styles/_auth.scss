@@ -1,0 +1,137 @@
+.centered-container {
+  min-height: calc(100vh - 72px);
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
+
+.centered-content {
+  max-width: 440px;
+}
+
+.auth-card {
+  overflow: hidden;
+  border: 1px solid var(--border) !important;
+  border-radius: 20px !important;
+  background: var(--surface);
+  box-shadow: 0 20px 55px rgba(31, 45, 86, 0.1) !important;
+
+  .card-body {
+    padding: clamp(24px, 6vw, 40px);
+  }
+
+  h2 {
+    margin-bottom: 26px !important;
+    color: var(--text-primary);
+    font-size: 1.55rem;
+    font-weight: 750;
+    letter-spacing: -0.045em;
+  }
+
+  .form-label {
+    margin-bottom: 7px;
+    color: var(--text-primary);
+    font-size: 0.84rem;
+    font-weight: 650;
+  }
+
+  .form-group,
+  [id="email"],
+  [id="password"],
+  [id="password-confirm"] {
+    margin-bottom: 18px;
+  }
+
+  .form-control {
+    min-height: 46px;
+    padding: 10px 13px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: var(--surface-muted);
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    transition:
+      border-color 0.15s ease,
+      box-shadow 0.15s ease,
+      background 0.15s ease;
+
+    &::placeholder {
+      color: var(--text-muted);
+    }
+
+    &:focus {
+      border-color: var(--accent);
+      background: var(--surface);
+      box-shadow: 0 0 0 4px rgba(83, 104, 232, 0.12);
+    }
+  }
+
+  .btn-primary {
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 0;
+    background: #5368e8;
+    box-shadow: 0 7px 14px rgba(83, 104, 232, 0.2);
+    color: #fff;
+    font-size: 0.92rem;
+    transition:
+      background 0.15s ease,
+      box-shadow 0.15s ease,
+      transform 0.15s ease;
+
+    &:hover,
+    &:active {
+      background: #4054d6 !important;
+      box-shadow: 0 9px 18px rgba(83, 104, 232, 0.28);
+      transform: translateY(-1px);
+    }
+  }
+
+  .alert {
+    border: 0;
+    border-radius: 11px;
+    font-size: 0.88rem;
+  }
+
+  a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+  }
+}
+
+.auth-card + .auth-footer-text,
+.centered-content > .auth-footer-text {
+  margin-top: 18px !important;
+  color: var(--text-secondary);
+
+  a {
+    color: var(--accent);
+    font-weight: 650;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.auth-card ~ .auth-footer-text {
+  color: var(--text-secondary);
+}
+
+.auth-card .btn-link {
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+// Menus, dialogs, and upload feedback

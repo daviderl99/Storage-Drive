@@ -1,0 +1,142 @@
+.dropdown-menu {
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 14px 36px rgba(31, 45, 86, 0.14);
+
+  .dropdown-item {
+    padding: 9px 11px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.86rem;
+
+    &:hover,
+    &:focus {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+  }
+}
+
+.three-dots-toggle {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  padding: 0;
+  border-radius: 9px;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--accent-soft);
+    color: var(--accent);
+  }
+}
+
+.modal-content {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: 0 24px 70px rgba(22, 33, 61, 0.2);
+  color: var(--text-primary);
+
+  .modal-body,
+  .modal-footer {
+    padding: 20px 24px;
+  }
+
+  .modal-footer {
+    gap: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  .form-label {
+    color: var(--text-primary);
+    font-size: 0.88rem;
+    font-weight: 650;
+  }
+
+  .form-control {
+    min-height: 44px;
+    border-color: var(--border);
+    border-radius: 10px;
+    background: var(--surface-muted);
+    color: var(--text-primary);
+
+    &:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px rgba(83, 104, 232, 0.12);
+    }
+  }
+}
+
+.modal-backdrop.show {
+  opacity: 0.55;
+}
+
+.modal .modal-header,
+.modal .modal-footer {
+  border-color: var(--border);
+}
+
+.modal .btn-close {
+  filter: none;
+}
+
+body.dark-theme .modal .btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.toast {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow-hover);
+  color: var(--text-primary);
+
+  .toast-header,
+  .toast-body {
+    background: var(--surface);
+    color: var(--text-primary);
+  }
+
+  .toast-header {
+    border-bottom-color: var(--border);
+  }
+}
+
+.not-found-page {
+  display: grid;
+  min-height: calc(100vh - 72px);
+  place-items: center;
+  padding: 40px 24px;
+}
+
+.not-found-card {
+  text-align: center;
+
+  h1 {
+    margin: 12px 0 0;
+    color: var(--text-primary);
+    font-size: clamp(5rem, 16vw, 9rem);
+    font-weight: 800;
+    letter-spacing: -0.09em;
+    line-height: 1;
+  }
+
+  p {
+    margin: 12px 0 0;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+  }
+}
+
+// Explicit dark-mode surfaces for Bootstrap components and custom cards

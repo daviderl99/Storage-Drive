@@ -1,0 +1,176 @@
+body.dark-theme {
+  .app-navbar {
+    background: color-mix(in srgb, var(--surface) 92%, transparent) !important;
+    border-bottom-color: var(--border);
+
+    .navbar-brand,
+    .navbar-brand:hover {
+      color: var(--text-primary) !important;
+    }
+
+    .nav-icon-btn {
+      color: var(--text-secondary);
+
+      &:hover {
+        background: var(--surface-raised);
+        color: var(--accent);
+      }
+    }
+
+    .theme-toggle {
+      border-color: var(--border);
+      background: var(--surface-raised);
+      color: var(--text-secondary);
+
+      &:hover {
+        border-color: var(--accent);
+        background: var(--accent-soft);
+        color: var(--accent);
+      }
+    }
+  }
+
+  .drive-toolbar,
+  .folder-card,
+  .file-card,
+  .empty-state,
+  .auth-card,
+  .dropdown-menu,
+  .modal-content {
+    border-color: var(--border);
+    background: var(--surface);
+    color: var(--text-primary);
+  }
+
+  .drive-toolbar .breadcrumb .breadcrumb-item {
+    color: var(--text-secondary);
+
+    a {
+      color: var(--text-secondary);
+
+      &:hover {
+        color: var(--accent);
+      }
+    }
+
+    &.active {
+      color: var(--text-primary);
+    }
+  }
+
+  .btn-drive {
+    border-color: var(--border);
+    background: var(--surface);
+    color: var(--text-primary);
+
+    &:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+  }
+
+  .folder-card .folder-name,
+  .file-card .file-name,
+  .section-label,
+  .drive-heading h1,
+  .empty-state h2,
+  .auth-card h2,
+  .auth-card .form-label,
+  .modal-content .form-label {
+    color: var(--text-primary);
+  }
+
+  .file-card .file-meta {
+    border-top-color: var(--border);
+  }
+
+  .file-card .file-preview {
+    background: var(--surface-muted);
+  }
+
+  .auth-card .form-control,
+  .modal-content .form-control {
+    border-color: var(--border);
+    background: var(--surface-muted);
+    color: var(--text-primary);
+
+    &:focus {
+      background: var(--surface-raised);
+      color: var(--text-primary);
+    }
+  }
+
+  .auth-footer-text,
+  .auth-card + .auth-footer-text,
+  .centered-content > .auth-footer-text {
+    color: var(--text-secondary);
+  }
+
+  .modal-content .modal-footer,
+  .modal-content .modal-header,
+  .toast .toast-header {
+    border-color: var(--border);
+  }
+
+  .toast,
+  .toast .toast-header,
+  .toast .toast-body {
+    border-color: var(--border);
+    background: var(--surface);
+    color: var(--text-primary);
+  }
+}
+
+@media (max-width: 640px) {
+  .app-navbar {
+    min-height: 64px;
+  }
+
+  .drive-page {
+    width: min(100% - 32px, 1120px);
+    padding-top: 34px;
+  }
+
+  .drive-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+    margin-bottom: 25px;
+  }
+
+  .drive-actions {
+    width: 100%;
+
+    .btn-drive {
+      flex: 1;
+    }
+  }
+
+  .drive-toolbar {
+    min-height: 52px;
+    padding: 0 12px;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 155px), 1fr));
+    gap: 10px;
+  }
+
+  .file-card .file-preview {
+    height: 125px;
+  }
+
+  .centered-container {
+    min-height: calc(100vh - 64px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
