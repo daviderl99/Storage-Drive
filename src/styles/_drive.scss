@@ -149,6 +149,16 @@ body.dark-theme .btn-drive.btn-drive-primary {
   }
 }
 
+.btn-drive-danger {
+  border-color: #e05353 !important;
+  background: #e05353 !important;
+  color: #fff !important;
+
+  &:hover {
+    box-shadow: 0 7px 16px rgba(232, 83, 83, 0.28);
+  }
+}
+
 .image-modal {
   .modal-body {
     display: flex;
@@ -248,6 +258,7 @@ body.dark-theme .btn-drive.btn-drive-primary {
 }
 
 .folder-card {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -282,6 +293,28 @@ body.dark-theme .btn-drive.btn-drive-primary {
   &:hover {
     border: 1px solid var(--accent) !important;
     box-shadow: 0 5px 12px rgba(83, 104, 232, 0.1);
+  }
+}
+
+.folder-card-container {
+  position: relative;
+  min-width: 0;
+
+  .folder-card {
+    padding-right: 52px;
+  }
+
+  .folder-menu {
+    position: absolute;
+    top: 18px;
+    right: 12px;
+    z-index: 1;
+  }
+
+  .folder-menu-toggle {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
   }
 }
 
